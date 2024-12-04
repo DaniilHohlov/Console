@@ -33,7 +33,7 @@ public class Program
 
                 
                 TradeManager manager = new TradeManager();
-                Trade trade = new Trade(direction, RandomPair, Math.Abs(num), newPrice, random.Next(1, 5), ExitPrice);
+                Trade trade = new Trade(direction, RandomPair, Math.Abs(num), newPrice, random.Next(1, 5), ExitPrice, StopLoss);
 
                 Console.WriteLine($"Новая сделка:");
                 Console.WriteLine($"Направление: {trade.Direction}");
@@ -41,7 +41,8 @@ public class Program
                 Console.WriteLine($"Объем: {trade.Volume}");
                 Console.WriteLine($"Цена входа: {trade.Price}");
                 Console.WriteLine($"Количество открытых лотов: {trade.OpenLotsCount}");
-                Console.WriteLine($"Цена выхода: {trade.DealPrice}");
+                Console.WriteLine($"Цена выхода: {trade.TakeProfit}");
+                Console.WriteLine($"Стоп Лосс: {trade.StopLoss}");
                 Console.WriteLine($"Время создания: {trade.CreationTime}");
 
                 manager.WriteTradeToFile(trade);

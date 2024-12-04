@@ -17,19 +17,21 @@ namespace MyConsole
         public decimal Price = 0;
         public decimal Volume = 0;
         public int OpenLotsCount = 0;
-        public decimal DealPrice;
+        public decimal TakeProfit;
+        public decimal StopLoss;
         public DateTime DateTime;
         public DateTime CreationTime;
         public TradeDirection Direction;
 
-        public Trade(TradeDirection direction, string pair, int volume, int price, int openLotsCount, decimal dealPrice)
+        public Trade(TradeDirection direction, string pair, int volume, int price, int openLotsCount, decimal takeProfit, decimal stopLoss)
         {
             Direction = direction;
             Pair = pair;
             Volume = volume;
             Price = price;
             OpenLotsCount = openLotsCount;
-            DealPrice = dealPrice;
+            TakeProfit = takeProfit;
+            StopLoss = stopLoss;
             CreationTime = DateTime.Now;
         }
     }

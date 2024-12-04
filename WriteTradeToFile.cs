@@ -23,7 +23,8 @@ namespace MyConsole
                 stream.WriteLine($"Объем: {trade.Volume}");
                 stream.WriteLine($"Цена входа: {trade.Price}");
                 stream.WriteLine($"Количество открытых лотов: {trade.OpenLotsCount}");
-                stream.WriteLine($"Цена выхода: {trade.DealPrice}");
+                stream.WriteLine($"Цена выхода: {trade.TakeProfit}");
+                stream.WriteLine($"Стоп Лосс: {trade.StopLoss}");
                 stream.WriteLine($"Время создания: {DateTime.Now}");
             }
 
