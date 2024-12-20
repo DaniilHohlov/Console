@@ -18,8 +18,6 @@ namespace MyConsole
             timer.Start();
         }
 
-            timer.Start();                      // запуск таймера в параллельном потоке
-        }
         public void NewTrade(object sender, ElapsedEventArgs e)
         {
             PositionChanged();
@@ -45,7 +43,6 @@ namespace MyConsole
                 StopLoss -= (StopLoss * 6 / 100);
                 direction = TradeDirection.Long;
             }
-
 
             TradeManager manager = new TradeManager();
             Trade trade = new Trade(direction, RandomPair, Math.Abs(num), newPrice, random.Next(1, 5), ExitPrice, StopLoss);
