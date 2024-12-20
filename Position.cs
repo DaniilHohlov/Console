@@ -6,17 +6,24 @@ namespace MyConsole
 {
     public class Position
     {
+        public delegate void ChangePosition();
+
+        public event ChangePosition PositionChanged;
+
         public Position()
         {
             Timer timer = new Timer();
-            timer.Interval = 5000;              // каждые 7000 мс будет производится действие
-            Console.WriteLine("Ждем " + timer.Interval / 1000 + " сек.");
-            timer.Elapsed += NewTrade;          // вызов действия
+            timer.Interval = 5000;
+            timer.Elapsed += NewTrade;
+            timer.Start();
+        }
 
             timer.Start();                      // запуск таймера в параллельном потоке
         }
         public void NewTrade(object sender, ElapsedEventArgs e)
         {
+            PositionChanged();
+
             Random random = new Random();
 
             string[] CurrencyPair = { "EUR", "USD" };
